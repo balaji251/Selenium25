@@ -1,0 +1,28 @@
+package selenium;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WebPageControls {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "E:/BALAJI/study/SELENIUM SETUP/chromedriver_win32/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://demo.guru99.com/test/newtours/");
+		
+		driver.manage().window().maximize();
+
+		driver.findElement(By.name("userName")).sendKeys("Balaji");
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Test1");
+		WebElement submitButton = driver.findElement(By.xpath("//input[@name='submit']"));
+		System.out.println("submit button is: " +submitButton.isEnabled());
+		submitButton.click();
+		driver.close();
+	}
+
+}
